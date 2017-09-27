@@ -1,6 +1,25 @@
 %h1 Calendars
 %table#calendars
   %thead
-    %tr
+    %tr 
+      %th
+      %th Sunday
       %th Monday
       %th Tuesday
+      %th Wednesday
+      %th Thursday
+      %th Friday
+      %th Saturday
+    %tr 
+    %tr
+    - @beginning_of_month = Date.civil(2009,12,1)
+    - @end_of_month       = Date.civil(2009, 12, -1)
+
+- (@beginning_of_month..@end_of_month).each do |d|
+  - if d == @beginning_of_month
+    - (d.wday).times do # offset beginning of calendar
+     &lt; td class='offset'&gt; &lt;/td&gt;
+  -if d.wday == 0 #restart the week
+    &lt;/tr&gt;&lt;tr&gt;
+
+  == &lt;td class='#{d}'&gt; #{d.day} &lt;/td&gt;</code></pre>
