@@ -11,13 +11,11 @@
       %th Friday
       %th Saturday
     %tr
-      %td 12:00
-    %tr
-      %td 12:30
-    %tr
-      %td 1:00
-    %tr
-      %td 1:30
-      
-   
-    
+    - @beginning_of_month = Date.civil(2009, 12, 1)
+    - @end_of_month = Date.civil(2009, 12, -1)
+    - (@beginning_of_month..@end_of_month).each do |d|
+      - if d == @beginning_of_month
+        - d.wday.times do
+          %td.offset
+      \&lt;% if d.wday == 0 %&gt; &lt;/tr&gt;&lt;tr&gt; &lt;% end %&gt;
+      \&lt;td&gt; &lt;%= d.day %&gt; &lt;/td&gt;    
