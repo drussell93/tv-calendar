@@ -10,4 +10,13 @@
       %th Thursday
       %th Friday
       %th Saturday
+    %tr
+    - (@beginning_of_month..@end_of_month).each do |d|
+  - if d == @beginning_of_month
+    - (d.wday).times do 
+     &lt; td class='offset'&gt; &lt;/td&gt;
+  -if d.wday == 0 
+    &lt;/tr&gt;&lt;tr&gt;
+
+  == &lt;td class='#{d}'&gt; 
     
