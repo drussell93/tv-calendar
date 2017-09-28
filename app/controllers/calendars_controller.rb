@@ -1,4 +1,4 @@
 class CalendarsController < ApplicationController
- def add
- end
+def add
+end
 end
