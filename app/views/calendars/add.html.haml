@@ -1,5 +1,6 @@
 %h1 Add new show
-
+=begin
+= form_tag show_path do
   = label :show, :title, 'Title'
   = text_field :show, 'title'
   = label :show, :start_time, 'Start time'
@@ -12,4 +13,5 @@
   
   = label :show, :description, 'Description:'
   = text_field :show, 'description'
-  = submit_tag 'Submit' 
+=end
+  = submit_tag 'Submit'
