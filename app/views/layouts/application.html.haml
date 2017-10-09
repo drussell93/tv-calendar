@@ -1,13 +1,10 @@
 !!!
 %html
   %head
-    %title CalendarApp
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    %title TV Show Tracker
+    = stylesheet_link_tag 'application', 'media' => 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = javascript_include_tag 'https://raw.githubusercontent.com/bokmann/fullcalendar-rails/master/vendor/assets/javascripts/fullcalendar.js'
-    = javascript_include_tag 'http://momentjs.com/downloads/moment-with-locales.js'
-    = csrf_meta_tags 
-
+    = csrf_meta_tags
     = yield
 
 
