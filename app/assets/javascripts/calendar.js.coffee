@@ -1,12 +1,16 @@
 ###
 EDIT HERE
 ###
-
 $(document).ready ->
   $('#calendar').fullCalendar
     editable: true,
+    customButtons: addShow:
+      text: 'Add Show'
+      click: (event, jsEvent, view) ->
+        window.location.href = '~/app/views/calendars/add.html.haml'   
+        return
     header:
-      left: 'prev,next today',
+      left: 'prev,next today addShow',
       center: 'title',
       right: 'month,agendaWeek,agendaDay'
     defaultView: 'month',
