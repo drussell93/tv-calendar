@@ -1,2 +1,3 @@
 bundle exec cucumber features/main_view.feature 
 rails server -b $IP -p $PORT
+sass -c fullcalendar.css 
