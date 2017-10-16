@@ -3,5 +3,5 @@ When(/^I go to index.html.haml$/) do
 end
 
 Then(/^I should see the calendar$/) do
-  expect(page).to have_content("Sunday")
+  page.find("#calendar")
 end
