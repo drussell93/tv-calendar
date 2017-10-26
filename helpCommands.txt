@@ -1,3 +1,10 @@
 bundle exec cucumber features/main_view.feature 
 rails server -b $IP -p $PORT
 sass -c fullcalendar.css 
+
+If you are having trouble gettting the server to post
+sudo -u postgres psql
+postgres#/CREATE DATABASE tv_show_tracker_test
+postgres#/CREATE DATABASE tv_show_tracker_development
+postgres#/\list
+postgres#/\q
