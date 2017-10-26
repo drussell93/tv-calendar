@@ -3,8 +3,9 @@ rails server -b $IP -p $PORT
 sass -c fullcalendar.css 
 
 If you are having trouble gettting the server to post
+sudo /etc/init.d/postgresql start
 sudo -u postgres psql
-postgres#/CREATE DATABASE tv_show_tracker_test
-postgres#/CREATE DATABASE tv_show_tracker_development
-postgres#/\list
-postgres#/\q
+postgres#=CREATE DATABASE tv_show_tracker_test
+postgres#-CREATE DATABASE tv_show_tracker_development
+postgres#-\list
+postgres#-\q
