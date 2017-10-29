@@ -18,3 +18,4 @@
 //= require fullcalendar
 //= require jquery-ui
 //= require jquery.rest
+//= require daterangepicker

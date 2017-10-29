@@ -5,3 +5,9 @@ sass -c fullcalendar.css
 
 Duplicate table: 
 rake db:drop db:create db:migrate
+
+New Data:
+bin/rake db:migrate RAILS_ENV=development
+
+Add column to DB:
+rails g migration add_start_to_events start:datetime

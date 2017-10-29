@@ -19,6 +19,8 @@ gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'jquery-rest-rails'
 gem 'jquery-ui-rails'
+gem 'simple_form'
+gem 'faker'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

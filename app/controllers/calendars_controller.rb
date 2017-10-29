@@ -1,6 +1,4 @@
 class CalendarsController < ApplicationController
-def show
-end
-def add
+def index
 end
 end
