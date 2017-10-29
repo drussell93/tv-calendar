@@ -16,4 +16,5 @@
 //= require_tree .
 //= require moment 
 //= require fullcalendar
-
+//= require jquery-ui
+//= require jquery.rest

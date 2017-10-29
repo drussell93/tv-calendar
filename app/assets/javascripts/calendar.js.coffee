@@ -1,6 +1,3 @@
-###
-EDIT HERE
-###
 $(document).ready ->
   $('#calendar').fullCalendar
     editable: true,
@@ -20,8 +17,9 @@ $(document).ready ->
     eventSources: [{
       url: '/events',
     }],
-
-    timeFormat: 'h:mm t{ - h:mm t} ',
+    
+    timeFormat: 'h:mm',
+    #timeFormat: 'h:mm t{ - h:mm t} ',
     dragOpacity: "0.5"
 
     eventDrop: (event, dayDelta, minuteDelta, allDay, revertFunc) ->
@@ -30,6 +28,20 @@ $(document).ready ->
     eventResize: (event, dayDelta, minuteDelta, revertFunc) ->
       updateEvent(event);
 
+    selectable: true
+    select: (start, end, jsEvent, view) ->
+      title = prompt('Enter Show Title', 'South Park')
+      #start = prompt('Enter Start Time', '8:00')
+      #end = prompt('Enter End Time', '8:30')
+      if title != null
+        event = 
+          title: if title.trim() != '' then title else 'New Show'
+          start: start
+          end: end
+          allDay: false
+        $('#calendar').fullCalendar 'renderEvent', event, true
+      $('#calendar').fullCalendar 'unselect'
+      return
 
 updateEvent = (the_event) ->
   $.update "/events/" + the_event.id,
