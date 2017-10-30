@@ -23,6 +23,7 @@ gem 'simple_form'
 gem 'faker'
 gem 'bootstrap-sass'
 gem 'responders', '~> 2.0'
+gem 'rails_12factor'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
