@@ -21,6 +21,8 @@ gem 'jquery-rest-rails'
 gem 'jquery-ui-rails'
 gem 'simple_form'
 gem 'faker'
+gem 'bootstrap-sass'
+gem 'responders', '~> 2.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

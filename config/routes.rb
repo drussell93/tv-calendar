@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'calendars#index'
  # root :to => 'calendars#index'
- # get "~/app/views/calendars/add.html.haml", to: "calendars#add", as: "add" 
+   get "~/app/views/calendars/add.html.haml", to: "calendars#add", as: "add" 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

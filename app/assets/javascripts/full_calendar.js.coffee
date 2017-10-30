@@ -5,7 +5,7 @@ initialize_calendar = ->
     calendar = $(this)
     calendar.fullCalendar
       header:
-        left: 'prev,next today'
+        left: 'prev,next today, addShow'
         center: 'title'
         right: 'month,agendaWeek,agendaDay'
       selectable: true
@@ -13,6 +13,13 @@ initialize_calendar = ->
       editable: true
       eventLimit: true
       events: '/events.json'
+      
+      customButtons: addShow:
+        text: 'Add Show'
+        click: (event, jsEvent, view) ->
+          window.location.href = '~/app/views/calendars/add.html.haml'
+          return
+
       select: (start, end) ->
         $.getScript '/events/new', ->
           $('#event_date_range').val moment(start).format('MM/DD/YYYY HH:mm') + ' - ' + moment(end).format('MM/DD/YYYY HH:mm')
@@ -44,4 +51,3 @@ initialize_calendar = ->
   return
 
 $(document).on 'turbolinks:load', initialize_calendar
-
