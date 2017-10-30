@@ -15,6 +15,9 @@ rails g migration add_start_to_events start:datetime
 Heroku precompile assets:
 rake assets:precompile RAILS_ENV=production
 
+Heroku migration:
+heroku run rake db:migrate
+
 Create DB (if errors thrown during runtime):
 sudo -u postgres psql
 postgres#=CREATE DATABASE tv_show_tracker_test
