@@ -2,11 +2,15 @@ Rails.application.routes.draw do
   resources :events
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+  
+  resources :add_path do
+    post :add, :on => :collection
+  end
 
   # You can have the root of your site routed with "root"
    root 'calendars#index'
- # root :to => 'calendars#index'
    get "~/app/views/calendars/add.html.haml", to: "calendars#add", as: "add" 
+ 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

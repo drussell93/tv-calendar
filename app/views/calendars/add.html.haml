@@ -1,1 +1,36 @@
 %h1 Search for Shows
+= form_tag(add_path, :method => "get") do
+  = label_tag(:userInput, "Search for:")
+  = text_field_tag(:userInput, "TV Show")
+  = submit_tag("Search")
+
+-@response = HTTParty.get(@searchValue)
+-body = JSON.parse(@response.body)
+
+-name = body[0]["show"]["name"]
+-time = body[0]["show"]["schedule"]["time"]
+-runtime = body[0]["show"]["runtime"]
+-days = body[0]["show"]["schedule"]["days"]
+-description = body[0]["show"]["summary"]
+-image = body[0]["show"]["image"]["original"]
+-#-start_time = Time.parse(time)
+-#-runtime_conversion = runtime.to_s.to_time
+-#-end_time_hour = start_time.hour + runtime_conversion.hour
+-#-end_time_min = start_time.min + runtime_conversion.min
+
+%td <b>Title:</b> #{name}
+%br
+%td <b>Start Time:</b> #{time}
+%br
+%td <b>Run Time:</b> #{runtime}
+%br
+%td <b>Days</b>: #{days}
+%br
+%td <b>Description</b>: #{description}
+%br
+%br
+%img{:src => image}
+%br
+%br
+%td #{@response}
+

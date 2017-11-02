@@ -5,4 +5,8 @@ class Event < ApplicationRecord
   def all_day_event?
     self.start == self.start.midnight && self.end == self.end.midnight ? true : false
   end
+  
+  def show
+    # @json = JSON.parse(@response.body)
+  end
 end
