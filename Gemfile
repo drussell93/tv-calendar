@@ -25,6 +25,7 @@ gem 'bootstrap-sass'
 gem 'responders', '~> 2.0'
 gem 'rails_12factor'
 gem 'httparty'
+gem 'jquery-turbolinks'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -47,6 +48,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.6'
 end
 
 group :development do
@@ -60,8 +62,11 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'cucumber-rails', require: false
+  gem 'simplecov', require: false
   gem 'database_cleaner'
   gem 'selenium-webdriver'
   gem 'capybara'
   gem 'rspec'
+  gem 'flog'
+  gem 'reek'
 end

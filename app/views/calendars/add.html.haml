@@ -34,3 +34,10 @@
 %br
 %td #{@response}
 
+-#var newEvent = new Object();
+-#var event={title: 'New event', start:  new Date()};
+
+-#$('#calendar').fullCalendar( 'renderEvent', event, true);
+-#newEvent.title = name;
+-#newEvent.start = days;
+-#.calendar( 'renderEvent', newEvent );

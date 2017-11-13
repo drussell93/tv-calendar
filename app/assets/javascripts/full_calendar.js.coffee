@@ -49,5 +49,5 @@ initialize_calendar = ->
         return
     return
   return
-
+  
 $(document).on 'turbolinks:load', initialize_calendar
