@@ -1,11 +1,7 @@
-When("I select The Flash") do
+When("I search Breaking Bad") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-When("I press Add to Calendar") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("The Flash should display in the calendar") do
+Then("Breaking Bad Information Should Display") do
   pending # Write code here that turns the phrase above into concrete actions
 end

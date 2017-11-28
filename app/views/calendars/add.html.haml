@@ -1,8 +1,17 @@
 %h1 Search for Shows
-= form_tag(add_path, :method => "get") do
+%div{:style => "display: inline"}
+
+= form_tag(add_path, :method => "get", class: 'form-inline') do
   = label_tag(:userInput, "Search for:")
   = text_field_tag(:userInput, "TV Show")
   = submit_tag("Search")
+  -#%input{:type => "button", :value => "Add Show To Calendar", :align => "center"}/
+  %input{:type => "button", :value => "Add Show To Calendar", :align => "center"}/
+-#%div{:style => "text-align:center"}
+-#  %input{:type => "button", :value => "Add Show To Calendar", :align => "center"}/
+
+-#%input{:type => "button", :value => "Click Me"}/
+-#%br
 
 -@response = HTTParty.get(@searchValue)
 -body = JSON.parse(@response.body)
@@ -35,9 +44,9 @@
 %td #{@response}
 
 -#var newEvent = new Object();
--#var event={title: 'New event', start:  new Date()};
-
--#$('#calendar').fullCalendar( 'renderEvent', event, true);
+-#event={title: 'Test Addition', start: 2017-11-15}
+-#var event = {title: 'TEST ADDITION', start: '2017-11-15'};
+-#$('#calendar').fullCalendar('renderEvent', event, true);
+-#.calendar('renderEvent', event, 'stick')
 -#newEvent.title = name;
--#newEvent.start = days;
--#.calendar( 'renderEvent', newEvent );
+-
