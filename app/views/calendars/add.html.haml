@@ -46,18 +46,8 @@
 :javascript
   function AddShow()
   {
-  //var newEvent = new Object();
-
-  //newEvent.title = "SEARCH TEST";
-  //newEvent.start = 2017-11-15;
-  //newEvent.allDay = false;
-  //var newEvent = {title: "SEARCH TEST", start: "2017-11-27"};
-  // #{@event} = newEvent;
-  
-  #{newEvent = Event.create(title: "SEARCH TEST", start: "2017-11-27", end: "2017-11-27 00:30:00")};
-  $('#calendar').fullCalendar( 'refetchEvents' );
-  alert("Show Added!");
-  //$('.calendar').fullCalendar( 'renderEvent', #{newEvent}, 'stick' );
+  #{newEvent = Event.create(title: name, start: "2017-11-27", end: "2017-11-27 00:30:00")};
+  alert("Success! Show Added to Calendar.");
   }
 -#var newEvent = new Object();
 -#event={title: 'Test Addition', start: 2017-11-15}
