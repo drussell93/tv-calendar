@@ -5,8 +5,14 @@
   = label_tag(:userInput, "Search for:")
   = text_field_tag(:userInput, "TV Show")
   = submit_tag("Search")
+= form_tag do
+  = hidden_field_tag(:some_name, "true")
+  = hidden_field_tag(:userInput, @lastInput)
+  = submit_tag "Add Show To Calendar"
+  -#= button_to 'Scrape', test_path
+  -#=button_to "Some Button", test_path, method: :post
   -#%input{:type => "button", :value => "Add Show To Calendar", :align => "center"}/
-  %input{:type => "button", :value => "Add Show To Calendar", :align => "center", :onclick=>"AddShow(); return false"}/
+  -#%input{:type => "button", :value => "Add Show To Calendar", :align => "center", :onclick=>"AddShow(); return false"}/
 -#%div{:style => "text-align:center"}
 -#  %input{:type => "button", :value => "Add Show To Calendar", :align => "center"}/
 
@@ -26,6 +32,10 @@
 -#-runtime_conversion = runtime.to_s.to_time
 -#-end_time_hour = start_time.hour + runtime_conversion.hour
 -#-end_time_min = start_time.min + runtime_conversion.min
+-#= form_tag do
+-#  = hidden_field_tag(:some_name, "true")
+-#  = hidden_field_tag(:userInput, @lastInput)
+-#  = submit_tag "Add Show To Calendar"
 
 %td <b>Title:</b> #{name}
 %br
@@ -43,16 +53,25 @@
 %br
 %td #{@response}
 
+-if(@some_boolean == "true")
+  -Event.create(title: name, start: "2017-11-27", end: "2017-11-27 00:30:00")
+  -flash[:notice] = "Success!"
+  -@some_boolean = "false"
+
 :javascript
   function AddShow()
   {
-  #{newEvent = Event.create(title: name, start: "2017-11-27", end: "2017-11-27 00:30:00")};
-  alert("Success! Show Added to Calendar.");
+    alert("Success! Show Added to Calendar.");
   }
+
+
+-#{newEvent = Event.create(title: name, start: "2017-11-27", end: "2017-11-27 00:30:00")};
 -#var newEvent = new Object();
 -#event={title: 'Test Addition', start: 2017-11-15}
 -#var event = {title: 'TEST ADDITION', start: '2017-11-15'};
 -#$('#calendar').fullCalendar('renderEvent', event, true);
 -#.calendar('renderEvent', event, 'stick')
--#newEvent.title = name;
--
+-#newEvent.title 
+
+
+-#Event.create(title: "testPATH", start: "2017-11-27", end: "2017-11-27 00:30:00")
