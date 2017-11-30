@@ -1,14 +1,15 @@
 %h1 Search for Shows
-%div{:style => "display: inline"}
-
-= form_tag(add_path, :method => "get", class: 'form-inline') do
-  = label_tag(:userInput, "Search for:")
-  = text_field_tag(:userInput, "TV Show")
-  = submit_tag("Search")
-= form_tag do
-  = hidden_field_tag(:some_name, "true")
-  = hidden_field_tag(:userInput, @lastInput)
-  = submit_tag "Add Show To Calendar"
+-#%div{:style => "display: inline-block;"}
+%span{:style => "float:left; padding: 5px;"}
+  = form_tag(add_path, :method => "get", :style => "display: inline") do
+    = label_tag(:userInput, "Search for:")
+    = text_field_tag(:userInput, "TV Show")
+    = submit_tag("Search")
+%span{:style => "float:left; padding: 5px;"}
+  = form_tag(:style => "display: inline") do
+    = hidden_field_tag(:some_name, "true")
+    = hidden_field_tag(:userInput, @lastInput)
+    = submit_tag "Add Show To Calendar"
   -#= button_to 'Scrape', test_path
   -#=button_to "Some Button", test_path, method: :post
   -#%input{:type => "button", :value => "Add Show To Calendar", :align => "center"}/
@@ -21,7 +22,9 @@
 
 -@response = HTTParty.get(@searchValue)
 -body = JSON.parse(@response.body)
-
+%br
+%br
+%br
 -name = body[0]["show"]["name"]
 -time = body[0]["show"]["schedule"]["time"]
 -runtime = body[0]["show"]["runtime"]
@@ -36,6 +39,9 @@
 -#  = hidden_field_tag(:some_name, "true")
 -#  = hidden_field_tag(:userInput, @lastInput)
 -#  = submit_tag "Add Show To Calendar"
+
+-days = days.to_s.delete('["]')
+-description = description.gsub('<p>', '').gsub('</p>', '').gsub('<b>', '').gsub('</b>', '').gsub('<i>', '').gsub('</i>', '')
 
 %td <b>Title:</b> #{name}
 %br
