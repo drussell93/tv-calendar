@@ -3,14 +3,16 @@ Given("I am on the add show page") do
   #expect(page).to have_content("Add new show")
 end
 
-When('I select /(.*)/') do |shows|
-  shows.split(", ").each do |show|
-    show.create :title == show
-  end
-end
+#When (/"I select (.*)"/) do |shows|
+ # shows.split(", ").each do |show|
+  #  show.create :title == show
+  #end
+#end
 
-When("I select Breaking Bad") do
-  pending
+When /^I select (.+)$/ do |events|
+  events.split(", ").each do |event|
+    event.create :title => event 
+    end
 end
 
 When("I press Add to Calendar") do
