@@ -1,6 +1,11 @@
 Feature: Add show to calendar
-Scenario: User adds show to calendar
-Given: I am on the add show page
-When I select The Flash
-And I press Add to Calendar
-Then The Flash should display in the calendar
+  In order to plan my screen time
+  As a show lover
+  I want to add a show to my calendar
+  
+  Scenario: Add Event
+    Given I am on the add event page
+    When I select The Flash
+    And I press Add to Calendar
+    Then The Flash should display in the calendar
+
