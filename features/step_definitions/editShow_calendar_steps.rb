@@ -1,3 +1,7 @@
+When("I select The Flash") do
+  pending
+end
+
 When("I press Edit Show") do
   pending # Write code here that turns the phrase above into concrete actions
 end

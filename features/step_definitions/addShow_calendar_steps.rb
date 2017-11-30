@@ -9,6 +9,10 @@ When('I select /(.*)/') do |shows|
   end
 end
 
+When("I select Breaking Bad") do
+  pending
+end
+
 When("I press Add to Calendar") do
   pending # Write code here that turns the phrase above into concrete actions
 end
