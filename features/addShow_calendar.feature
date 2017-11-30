@@ -5,7 +5,7 @@ Feature: Add show to calendar
   
   Scenario: Add Event
     Given I am on the add show page
-    When I select Breaking Bad
+    When I select Breaking Bad, The Flash
     And I press Add to Calendar
     Then The Flash should display in the calendar
 

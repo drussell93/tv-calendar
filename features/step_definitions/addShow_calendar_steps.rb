@@ -11,12 +11,12 @@ end
 
 When /^I select (.+)$/ do |events|
   events.split(", ").each do |event|
-    event.create :title => event 
+    Event.create(title: event, start: "2017-11-27", end: "2017-11-27 00:30:00") 
     end
 end
 
 When("I press Add to Calendar") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pending
 end
 
 Then("The Flash should display in the calendar") do
