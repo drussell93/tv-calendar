@@ -17,7 +17,7 @@ initialize_calendar = ->
       customButtons: addShow:
         text: 'Add Show'
         click: (event, jsEvent, view) ->
-          window.location.href = '~/app/views/calendars/add.html.haml'
+          window.location.href = 'add.html.haml'
           return
 
       select: (start, end) ->

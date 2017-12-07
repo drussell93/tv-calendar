@@ -8,9 +8,18 @@ Rails.application.routes.draw do
   end
 
   # You can have the root of your site routed with "root"
-   root 'calendars#index'
-   get "~/app/views/calendars/add.html.haml", to: "calendars#add", as: "add" 
-   post "~/app/views/calendars/add.html.haml", to: "calendars#add"
+  # root 'calendars#index'
+
+  get "calendars/index.html.haml", to: "calendars#index", as: "calendar"
+  #get "~/app/views/calendars/index.html.haml", to: "calendars#index", as: "calendar"
+  root 'calendars#splash'
+
+   #get "~/app/views/calendars/add.html.haml", to: "calendars#add", as: "add" 
+   #post "~/app/views/calendars/add.html.haml", to: "calendars#add"
+   
+   get "calendars/add.html.haml", to: "calendars#add", as: "add"
+   post "calendars/add.html.haml", to: "calendars#add"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
