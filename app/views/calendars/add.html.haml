@@ -1,5 +1,4 @@
 %h1 Search for Shows
--#%div{:style => "display: inline-block;"}
 %span{:style => "float:left; padding: 5px;"}
   = form_tag(add_path, :method => "get", :style => "display: inline") do
     = label_tag(:userInput, "Search for:")
@@ -10,15 +9,6 @@
     = hidden_field_tag(:some_name, "true")
     = hidden_field_tag(:userInput, @lastInput)
     = submit_tag "Add Show To Calendar"
-  -#= button_to 'Scrape', test_path
-  -#=button_to "Some Button", test_path, method: :post
-  -#%input{:type => "button", :value => "Add Show To Calendar", :align => "center"}/
-  -#%input{:type => "button", :value => "Add Show To Calendar", :align => "center", :onclick=>"AddShow(); return false"}/
--#%div{:style => "text-align:center"}
--#  %input{:type => "button", :value => "Add Show To Calendar", :align => "center"}/
-
--#%input{:type => "button", :value => "Click Me"}/
--#%br
 
 -@response = HTTParty.get(@searchValue)
 -body = JSON.parse(@response.body)
@@ -31,14 +21,6 @@
 -days = body[0]["show"]["schedule"]["days"]
 -description = body[0]["show"]["summary"]
 -image = body[0]["show"]["image"]["original"]
--#-start_time = Time.parse(time)
--#-runtime_conversion = runtime.to_s.to_time
--#-end_time_hour = start_time.hour + runtime_conversion.hour
--#-end_time_min = start_time.min + runtime_conversion.min
--#= form_tag do
--#  = hidden_field_tag(:some_name, "true")
--#  = hidden_field_tag(:userInput, @lastInput)
--#  = submit_tag "Add Show To Calendar"
 
 -days = days.to_s.delete('["]')
 -description = description.gsub('<p>', '').gsub('</p>', '').gsub('<b>', '').gsub('</b>', '').gsub('<i>', '').gsub('</i>', '')
@@ -57,36 +39,30 @@
 %img{:src => image}
 %br
 %br
-%td #{@response}
+-#%td #{@response}
 
 -if(@some_boolean == "true")
-  -#Event.create(title: name, start: "2017-11-27 22:00:00", end: "2017-12-27 22:30:00", dow: [1,4])
+  -timeStart = Time.parse(time)
+  -timeEnd = timeStart + runtime.minutes
+  -timeMax = Time.parse("23:59")
+  -if(timeEnd > timeMax )
+    -timeEnd = Time.parse("23:59")
   -if(days == "Monday")
-    -Event.create(title: name, start: "22:00", end: "22:30", dow: [1])
+    -Event.create(title: name, start: time, end: timeEnd, dow: [1])
   -elsif(days == "Tuesday")
-    -Event.create(title: name, start: "22:00", end: "22:30", dow: [2])
+    -Event.create(title: name, start: time, end: timeEnd, dow: [2])
   -elsif(days == "Wednesday")
-    -Event.create(title: name, start: "22:00", end: "22:30", dow: [3])
+    -Event.create(title: name, start: time, end: timeEnd, dow: [3])
   -elsif(days == "Thursday")
-    -Event.create(title: name, start: "22:00", end: "22:30", dow: [4])
+    -Event.create(title: name, start: time, end: timeEnd, dow: [4])
   -elsif(days == "Friday")
-    -Event.create(title: name, start: "22:00", end: "22:30", dow: [5])
+    -Event.create(title: name, start: time, end: timeEnd, dow: [5])
   -elsif(days == "Saturday")
-    -Event.create(title: name, start: "22:00", end: "22:30", dow: [6])
+    -Event.create(title: name, start: time, end: timeEnd, dow: [6])
   -elsif(days == "Sunday")
-    -Event.create(title: name, start: "22:00", end: "22:30", dow: [0]) 
+    -Event.create(title: name, start: time, end: timeEnd, dow: [0]) 
   -flash[:notice] = "Success!"
   -@some_boolean = "false"
 
 
 
--#{newEvent = Event.create(title: name, start: "2017-11-27", end: "2017-11-27 00:30:00")};
--#var newEvent = new Object();
--#event={title: 'Test Addition', start: 2017-11-15}
--#var event = {title: 'TEST ADDITION', start: '2017-11-15'};
--#$('#calendar').fullCalendar('renderEvent', event, true);
--#.calendar('renderEvent', event, 'stick')
--#newEvent.title 
-
-
--#Event.create(title: "testPATH", start: "2017-11-27", end: "2017-11-27 00:30:00")
