@@ -7,10 +7,12 @@ Rails.application.routes.draw do
     post :add, :on => :collection
   end
 
-  # You can have the root of your site routed with "root"
-   root 'calendars#index'
-   get "~/app/views/calendars/add.html.haml", to: "calendars#add", as: "add" 
- 
+  get "calendars/index.html.haml", to: "calendars#index", as: "calendar"
+  root 'calendars#splash'
+   
+  get "calendars/add.html.haml", to: "calendars#add", as: "add"
+  post "calendars/add.html.haml", to: "calendars#add"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

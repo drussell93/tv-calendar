@@ -18,6 +18,12 @@ rake assets:precompile RAILS_ENV=production
 Heroku migration:
 heroku run rake db:migrate
 
+Access table in db:
+SELECT * FROM events;
+
+Delete row in table:
+DELETE FROM events where events.id = 55;
+
 Create DB (if errors thrown during runtime):
 sudo /etc/init.d/postgresql start
 sudo -u postgres psql
