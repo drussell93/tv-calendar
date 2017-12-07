@@ -1,23 +1,29 @@
 %h1 Search for Shows
-= form_tag(add_path, :method => "get") do
-  = label_tag(:userInput, "Search for:")
-  = text_field_tag(:userInput, "TV Show")
-  = submit_tag("Search")
+%span{:style => "float:left; padding: 5px;"}
+  = form_tag(add_path, :method => "get", :style => "display: inline") do
+    = label_tag(:userInput, "Search for:")
+    = text_field_tag(:userInput, "TV Show")
+    = submit_tag("Search")
+%span{:style => "float:left; padding: 5px;"}
+  = form_tag(:style => "display: inline") do
+    = hidden_field_tag(:some_name, "true")
+    = hidden_field_tag(:userInput, @lastInput)
+    = submit_tag "Add Show To Calendar"
 
 -@response = HTTParty.get(@searchValue)
 -body = JSON.parse(@response.body)
-
+%br
+%br
+%br
 -name = body[0]["show"]["name"]
 -time = body[0]["show"]["schedule"]["time"]
 -runtime = body[0]["show"]["runtime"]
 -days = body[0]["show"]["schedule"]["days"]
 -description = body[0]["show"]["summary"]
 -image = body[0]["show"]["image"]["original"]
--#-start_time = Time.parse(time)
--#-runtime_conversion = runtime.to_s.to_time
--#-end_time_hour = start_time.hour + runtime_conversion.hour
--#-end_time_min = start_time.min + runtime_conversion.min
 
+-days = days.to_s.delete('["]')
+-description = description.gsub('<p>', '').gsub('</p>', '').gsub('<b>', '').gsub('</b>', '').gsub('<i>', '').gsub('</i>', '')
 %td <b>Title:</b> #{name}
 %br
 %td <b>Start Time:</b> #{time}
@@ -32,12 +38,26 @@
 %img{:src => image}
 %br
 %br
-%td #{@response}
-
--#var newEvent = new Object();
--#var event={title: 'New event', start:  new Date()};
-
--#$('#calendar').fullCalendar( 'renderEvent', event, true);
--#newEvent.title = name;
--#newEvent.start = days;
--#.calendar( 'renderEvent', newEvent );
+-#%td #{@response}
+-if(@some_boolean == "true")
+  -timeStart = Time.parse(time)
+  -timeEnd = timeStart + runtime.minutes
+  -timeMax = Time.parse("23:59")
+  -if(timeEnd > timeMax )
+    -timeEnd = Time.parse("23:59")
+  -if(days == "Monday")
+    -Event.create(title: name, start: time, end: timeEnd, dow: [1])
+  -elsif(days == "Tuesday")
+    -Event.create(title: name, start: time, end: timeEnd, dow: [2])
+  -elsif(days == "Wednesday")
+    -Event.create(title: name, start: time, end: timeEnd, dow: [3])
+  -elsif(days == "Thursday")
+    -Event.create(title: name, start: time, end: timeEnd, dow: [4])
+  -elsif(days == "Friday")
+    -Event.create(title: name, start: time, end: timeEnd, dow: [5])
+  -elsif(days == "Saturday")
+    -Event.create(title: name, start: time, end: timeEnd, dow: [6])
+  -elsif(days == "Sunday")
+    -Event.create(title: name, start: time, end: timeEnd, dow: [0]) 
+  -flash[:notice] = "Success!"
+  -@some_boolean = "false"
