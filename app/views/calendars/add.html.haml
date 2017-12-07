@@ -60,7 +60,8 @@
 %td #{@response}
 
 -if(@some_boolean == "true")
-  -Event.create(title: name, start: "2017-11-27 22:00:00", end: "2017-11-27 22:30:00")
+  -#Event.create(title: name, start: "2017-11-27 22:00:00", end: "2017-12-27 22:30:00", dow: [1,4])
+  -Event.create(title: name, start: "22:00", end: "22:30", dow: [1,2]) 
   -flash[:notice] = "Success!"
   -@some_boolean = "false"
 
